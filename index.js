@@ -6,6 +6,8 @@ const webhook = new IncomingWebhook(SLACK_WEBHOOK_URL);
 // subscribe is the main function called by Cloud Functions.
 module.exports.subscribe = (event, callback) => {
   console.log(event);
+  console.log(event.data);
+  console.log(event.data.data);
   const build = eventToBuild(event.data.data);
 
   // Skip if the current status is not in the status list.
